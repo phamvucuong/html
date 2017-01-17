@@ -65,8 +65,17 @@
         function _rand() {
             var r = Math.floor(Math.random() * 120) + 1;
             if (r < 82 || r == 84 || r == 87 || r == 90 || r == 93 || r == 96 || r == 99 || r == 102 || r == 105 || r == 108 || r == 111 || r == 114 || r == 117 || r == 120) {
-                var s = '00' + r;
-                document.getElementById('random').innerHTML = s.substr(s.length - 3);
+                var s = '';
+                if (r < 10) {
+                    s = '00' + r;
+                }
+                else if (r < 100) {
+                    s = '0' + r;
+                }
+                else {
+                    s = '' + r;
+                }
+                document.getElementById('random').innerHTML = s;
             }
         }
 
