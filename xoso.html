@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sổ xố</title>
+    <meta charset="utf-8" />
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            min-height: 600px;
+            margin: 0;
+            color: #000000;
+            font-family: arial;
+            font-size: 26px;
+            background: #ff3300 url("bg.jpg") no-repeat center center fixed;
+            background-size: auto 100%;
+        }
+
+        #random {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            font-size: 40vh;
+            transform: translate(-50%, -50%);
+            color: gold;
+        }
+
+        #button {
+            position: relative;
+            display: block;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="random"></div>
+    <a id="button" onclick="_run()"></a>
+    <script>
+        var interval = null;
+        var run = true;
+        function _run() {
+            if (run) {
+                interval = setInterval(_rand, 1);
+                run = false;
+            }
+            else {
+                clearInterval(interval);
+                run = true;
+            }
+        }
+
+        function _rand() {
+            var r = Math.floor(Math.random() * 120) + 1;
+            if (r < 82 || r == 84 || r == 87 || r == 90 || r == 93 || r == 96 || r == 99 || r == 102 || r == 105 || r == 108 || r == 111 || r == 114 || r == 117 || r == 120) {
+                var s = '00' + r;
+                document.getElementById('random').innerHTML = s.substr(s.length - 3);
+            }
+        }
+
+    </script>
+</body>
+</html>
